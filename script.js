@@ -1,29 +1,29 @@
-// Variables y arrays
 const productos = [
-  { nombre: "Pan", precio: 100 },
-  { nombre: "Tortas", precio: 500 },
-  { nombre: "Facturas", precio: 80 },
-  { nombre: "Alfajores", precio: 150 },
-  { nombre: "Masas", precio: 300 },
-  { nombre: "Bombones", precio: 200 },
-  { nombre: "Brownies", precio: 120 },
-  { nombre: "Donas", precio: 90 },
+  { nombre: "Tortas", precio: 15000, cantidad: "unidad" },
+  { nombre: "Facturas", precio: 800, cantidad: "unidad" },
+  { nombre: "Alfajores", precio: 750, cantidad: "unidad" },
+  { nombre: "Masas", precio: 24000, cantidad: "kilo" },
+  { nombre: "Bombones", precio: 60000, cantidad: "kilo" },
+  { nombre: "Brownies", precio: 20000, cantidad: "kilo" },
+  { nombre: "Donas", precio: 3500, cantidad: "unidad" },
 ];
 
 let carrito = [];
 let totalGastado = 0;
 
 function mostrarMenu() {
-  let mensaje = "¿Qué producto querés comprar?\n";
+  let mensaje = `Bienvenido a Delice Confiserie\n
+Seleccioná un producto para agregar al carrito:\n\n`;
   productos.forEach((prod, index) => {
-    mensaje += `${index + 1}. ${prod.nombre} - $${prod.precio}\n`;
+    mensaje += `${index + 1}. ${prod.nombre} - $${prod.precio} por ${
+      prod.cantidad
+    }\n`;
   });
   mensaje += "T. Terminar";
 
   return prompt(mensaje);
 }
 
-// Procesar la compra del producto
 function procesarProducto(opcion) {
   const index = parseInt(opcion) - 1;
   const producto = productos[index];
@@ -33,9 +33,7 @@ function procesarProducto(opcion) {
     return;
   }
 
-  let cantidad = parseInt(
-    prompt(`¿Cuántos ${producto.nombre} querés comprar?`)
-  );
+  let cantidad = Number(prompt(`Indica la cantidad del producto seleccionado`));
   if (isNaN(cantidad) || cantidad <= 0) {
     alert("Cantidad inválida");
     return;
@@ -50,14 +48,11 @@ function procesarProducto(opcion) {
     subtotal: subtotal,
   });
 
-  alert(
-    `${cantidad} x ${producto.nombre} agregados al carrito. Subtotal: $${subtotal}`
-  );
+  alert(`${cantidad} x ${producto.nombre} agregados al carrito`);
 }
 
-// Mostrar el resumen final
 function mostrarResumen() {
-  let mensaje = "Resumen de tu compra:\n\n";
+  let mensaje = "El ticket de tu compra es:\n\n";
   carrito.forEach((item) => {
     mensaje += `${item.cantidad} x ${item.nombre} = $${item.subtotal}\n`;
   });
@@ -66,10 +61,7 @@ function mostrarResumen() {
   console.log(mensaje);
 }
 
-// Simulador principal
 function iniciarSimulador() {
-  alert("Bienvenido al simulador de carrito de compras");
-
   let opcion;
   do {
     opcion = mostrarMenu();
@@ -81,5 +73,4 @@ function iniciarSimulador() {
   mostrarResumen();
 }
 
-// Llamada al simulador
 iniciarSimulador();
