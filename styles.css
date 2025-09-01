@@ -1,0 +1,426 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #171718;
+  color: #fcf3cf;
+  font-family: "Noto Serif", serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+h1,
+h2 {
+  font-family: "Satisfy", cursive;
+  font-size: 40px;
+  margin: 20px 0;
+}
+
+/* Header */
+
+.header {
+  width: 100%;
+  position: fixed;
+  background-color: #171718;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.logo {
+  height: 80px;
+  object-fit: cover;
+}
+
+.nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fcf3cf;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #fcf3cf;
+  margin: 10px 0;
+}
+
+/* Inicio */
+
+main {
+  margin-top: 150px;
+}
+
+.img-inicio {
+  height: 700px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Productos */
+
+#box {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.cards {
+  width: 250px;
+  height: 350px;
+  background-color: #171718;
+  border-radius: 10px;
+  color: #fcf3cf;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-title {
+  position: absolute;
+  bottom: 130px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(23, 23, 24, 0.6);
+  color: #fcf3cf;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.btn {
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #fcf3cf;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fcf3cf;
+}
+
+/* Reseñas */
+
+#resenias {
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 0 30px;
+}
+
+.card {
+  width: 100%;
+  background-color: #171718;
+  border-radius: 10px;
+  color: #fcf3cf;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 4px 4px 10px 0px rgba(255, 255, 255, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.shortLine {
+  width: 50px;
+  height: 1px;
+  background-color: #fcf3cf;
+  margin: 10px 0;
+}
+
+/* Contacto */
+
+#contacto form {
+  width: 500px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.inlineForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.inlineForm input {
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.inlineForm textarea {
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Noto Serif", serif;
+  font-size: 14px;
+  color: #5d6d7e;
+  font-style: italic;
+}
+
+button {
+  margin: 0 auto;
+  width: 100px;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+button:hover {
+  background-color: #171718;
+  color: #fcf3cf;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+/* Footer */
+
+footer {
+  width: 100vw;
+}
+
+.text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.name {
+  font-family: "Satisfy", cursive;
+  font-size: 30px;
+  background: linear-gradient(to bottom, #b9770e, #f4d03f, #fcf3cf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.redes a {
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px;
+}
+
+.redes i {
+  font-size: 26px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #171718;
+  color: #fcf3cf;
+  transition: all 0.3s ease;
+}
+
+.redes i:hover {
+  background-color: #fcf3cf;
+  color: #171718;
+  transform: scale(1);
+}
+
+/* Carrito  */
+
+.carrito {
+  margin: 30px auto 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px;
+  min-width: 400px;
+  background-color: #fcf3cf;
+  color: #171718;
+}
+
+.lista-carrito li {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 5px;
+  padding-right: 5px;
+}
+
+.lista-carrito button {
+  margin-left: 5px;
+  padding: 3px 8px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fcf3cf;
+}
+
+.lista-carrito button {
+  background-color: #171718;
+  width: 50px;
+  color: white;
+  border-color: #171718;
+}
+
+.total-carrito,
+.cantidad-carrito {
+  font-weight: bold;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  text-align: left;
+}
+
+/* Medias Queries */
+
+@media (min-width: 600px) and (max-width: 1300px) {
+  .video {
+    width: 400px;
+  }
+
+  .container {
+    max-width: 500px;
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  #contacto form {
+    width: 300px;
+  }
+
+  .inlineForm input {
+    width: 250px;
+  }
+
+  .inlineForm textarea {
+    width: 250px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .inline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  main {
+    margin-top: 180px;
+  }
+
+  h1,
+  h2 {
+    font-size: 32px;
+    margin: 20px 10px;
+  }
+
+  .video {
+    width: 300px;
+  }
+
+  .container {
+    max-width: 500px;
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  #contacto form {
+    width: 300px;
+  }
+
+  .inlineForm input {
+    width: 250px;
+  }
+
+  .inlineForm textarea {
+    width: 250px;
+  }
+
+  .text {
+    padding: 0 10px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .redes i {
+    font-size: 16px;
+    padding: 5px;
+  }
+}

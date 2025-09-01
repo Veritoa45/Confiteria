@@ -1,12 +1,30 @@
 const productos = [
-  { nombre: "Tortas", precio: 15000, cantidad: "unidad" },
-  { nombre: "Facturas", precio: 800, cantidad: "unidad" },
-  { nombre: "Alfajores", precio: 750, cantidad: "unidad" },
-  { nombre: "Masas", precio: 24000, cantidad: "kilo" },
-  { nombre: "Bombones", precio: 60000, cantidad: "kilo" },
-  { nombre: "Brownies", precio: 20000, cantidad: "kilo" },
-  { nombre: "Donas", precio: 3500, cantidad: "unidad" },
+  { nombre: "Tortas", precio: 15000, imagen: "./public/tortas.jpg" },
+  { nombre: "Facturas", precio: 800, imagen: "./public/facturas.jpg" },
+  { nombre: "Alfajores", precio: 750, imagen: "./public/alfajores.jpg" },
+  { nombre: "Masas", precio: 24000, imagen: "./public/masas.jpg" },
+  { nombre: "Bombones", precio: 60000, imagen: "./public/chocolate.jpg" },
+  { nombre: "Brownies", precio: 20000, imagen: "./public/brownies.jpg" },
+  { nombre: "Donas", precio: 3500, imagen: "./public/donuts.jpg" },
+  { nombre: "Cupcakes", precio: 2500, imagen: "./public/cupcakes.jpg" },
+  { nombre: "Macarons", precio: 2000, imagen: "./public/macarons.jpg" },
 ];
+
+const cardContainer = document.getElementById("box");
+console.log(cardContainer);
+
+productos.forEach((producto) => {
+  cardContainer.innerHTML += `
+    <div class="cards">
+    <img src="${producto.imagen}" alt="${producto.nombre}" class="card-img">
+    <h5 class="card-title">${producto.nombre}</h5>
+    <div class="card-body">
+    <p>Precio: $${producto.precio}</p>
+      <a href="#" class="btn">Comprar</a>
+    </div>
+    </div>
+  `;
+});
 
 let carrito = [];
 let totalGastado = 0;
@@ -20,8 +38,6 @@ Seleccioná un producto para agregar al carrito:\n\n`;
     }\n`;
   });
   mensaje += "T. Terminar";
-
-  return prompt(mensaje);
 }
 
 function procesarProducto(opcion) {
