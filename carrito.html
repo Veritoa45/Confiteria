@@ -3,12 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <title>Delice Confiserie</title>
   </head>
   <body>
-    <section class="carrito">
-      <h2>Tu Carrito</h2>
-      <!-- Acá va el carrito -->
-    </section>
+    <header class="header">
+      <div class="inline">
+        <a href="index.html"
+          ><img src="./public/logo.png" alt="Delice" class="logo"
+        /></a>
+        <nav class="nav">
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#resenias">Reseñas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <a href="carrito.html" class="cart-link">
+          <img
+            src="./public/carrito-de-compras.png"
+            alt="Carrito"
+            class="cart"
+          />
+          <span id="cart-count" class="cart-count">0</span>
+        </a>
+      </div>
+      <div class="line"></div>
+    </header>
+    <main>
+      <section class="carrito">
+        <h2>Tu Carrito</h2>
+        <div id="carrito"></div>
+      </section>
+    </main>
+    <script src="./js/cart-counter.js" defer></script>
+    <script src="./js/carrito.js" defer></script>
   </body>
 </html>

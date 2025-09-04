@@ -18,7 +18,9 @@
   <body>
     <header class="header">
       <div class="inline">
-        <img src="./public/logo.png" alt="Delice" class="logo" />
+        <a href="index.html"
+          ><img src="./public/logo.png" alt="Delice" class="logo"
+        /></a>
         <nav class="nav">
           <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -27,6 +29,14 @@
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </nav>
+        <a href="carrito.html" class="cart-link">
+          <img
+            src="./public/carrito-de-compras.png"
+            alt="Carrito"
+            class="cart"
+          />
+          <span id="cart-count" class="cart-count">0</span>
+        </a>
       </div>
       <div class="line"></div>
     </header>
@@ -45,7 +55,6 @@
           <!-- Acá van los productos -->
         </div>
       </section>
-
       <section id="resenias">
         <h2>Reseñas</h2>
         <div class="container">
@@ -121,6 +130,10 @@
         </div>
       </div>
     </footer>
-    <script src="./script.js" defer></script>
+    <div id="custom-alert" class="custom-alert hidden">
+      <p id="custom-alert-message"></p>
+    </div>
+    <script src="./js/cart-counter.js" defer></script>
+    <script src="./js/index.js" defer></script>
   </body>
 </html>
