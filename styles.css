@@ -250,7 +250,7 @@ textarea::placeholder {
   font-style: italic;
 }
 
-button {
+.boton {
   margin: 0 auto;
   width: 100px;
   padding: 15px;
@@ -258,7 +258,7 @@ button {
   border-radius: 15px;
 }
 
-button:hover {
+.boton:hover {
   background-color: #171718;
   color: #fcf3cf;
   transform: scale(1.2);
@@ -357,25 +357,43 @@ footer {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: #4caf50; /* verde éxito */
+  padding: 15px 25px;
+  background-color: green;
   color: white;
-  padding: 15px 20px;
-  border-radius: 10px;
-  font-size: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.3s ease;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 9999;
-}
-
-.custom-alert.show {
   opacity: 1;
-  transform: translateY(0);
+  transition: opacity 0.5s ease;
 }
 
-.hidden {
-  display: none;
+.custom-alert.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-alert.error {
+  background-color: red;
+}
+
+.custom-alert.success {
+  background-color: green;
+}
+
+.custom-alert.info {
+  background-color: blue;
+}
+
+.btn-finalizar {
+  margin-top: 15px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #fcf3cf;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fcf3cf;
+  background-color: #171718;
 }
 
 /* Medias Queries */

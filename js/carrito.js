@@ -45,4 +45,21 @@ function eliminarDelCarrito(index) {
   updateCartCount();
 }
 
+const btnFinalizar = document.getElementById("btn-finalizar");
+
+if (btnFinalizar) {
+  btnFinalizar.addEventListener("click", () => {
+    if (carrito.length === 0) {
+      mostrarAlerta("Tu carrito está vacío", "error");
+      return;
+    }
+
+    carrito.length = 0;
+    localStorage.removeItem("carrito");
+    mostrarCarrito();
+
+    mostrarAlerta("¡Su compra ha sido confirmada!", "success");
+  });
+}
+
 mostrarCarrito();
