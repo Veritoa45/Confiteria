@@ -1,0 +1,11 @@
+[
+  { "nombre": "Tortas", "precio": 15000, "imagen": "./public/tortas.jpg" },
+  { "nombre": "Facturas", "precio": 800, "imagen": "./public/facturas.jpg" },
+  { "nombre": "Alfajores", "precio": 750, "imagen": "./public/alfajores.jpg" },
+  { "nombre": "Masas", "precio": 24000, "imagen": "./public/masas.jpg" },
+  { "nombre": "Bombones", "precio": 60000, "imagen": "./public/chocolate.jpg" },
+  { "nombre": "Brownies", "precio": 20000, "imagen": "./public/brownies.jpg" },
+  { "nombre": "Donas", "precio": 3500, "imagen": "./public/donuts.jpg" },
+  { "nombre": "Cupcakes", "precio": 2500, "imagen": "./public/cupcakes.jpg" },
+  { "nombre": "Macarons", "precio": 2000, "imagen": "./public/macarons.jpg" }
+]

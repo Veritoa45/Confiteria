@@ -1,38 +1,50 @@
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const carritoContainer = document.getElementById("carrito");
+const carritoBody = document.getElementById("carrito-body");
 const totalContainer = document.getElementById("total");
+const btnFinalizar = document.getElementById("btn-finalizar");
 
 function mostrarCarrito() {
-  const carritoContainer = document.getElementById("carrito");
-  if (!carritoContainer) return;
+  if (!carritoBody) return;
 
-  carritoContainer.innerHTML = "";
+  carritoBody.innerHTML = "";
+
   if (carrito.length === 0) {
-    carritoContainer.textContent = "Tu carrito está vacío";
-    totalContainer.textContent = "";
+    carritoBody.innerHTML = `
+      <tr>
+        <td colspan="4">Tu carrito está vacío</td>
+      </tr>
+    `;
+    totalContainer.textContent = "$0";
+
+    if (btnFinalizar) btnFinalizar.disabled = true;
+
     return;
   }
 
   carrito.forEach((item, index) => {
-    const div = document.createElement("div");
-    div.className = "carrito-item";
-    div.innerHTML = `
-      ${item.cantidad} x ${item.nombre} = $${item.subtotal} 
-      <button class="btn-eliminar" data-index="${index}">Eliminar</button>
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="left">${item.nombre}</td>
+      <td>${item.cantidad}</td>
+      <td>$${item.subtotal}</td>
+      <td>
+        <button class="btn-eliminar" data-index="${index}">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </td>
     `;
-    carritoContainer.appendChild(div);
+    carritoBody.appendChild(tr);
   });
 
   const total = carrito.reduce((acc, item) => acc + item.subtotal, 0);
-  const totalDiv = document.createElement("div");
-  totalDiv.textContent = `Total: $${total}`;
-  carritoContainer.appendChild(totalDiv);
+  totalContainer.textContent = `$${total}`;
 
-  const botonesEliminar = document.querySelectorAll(".btn-eliminar");
-  botonesEliminar.forEach((boton) => {
+  if (btnFinalizar) btnFinalizar.disabled = false;
+
+  document.querySelectorAll(".btn-eliminar").forEach((boton) => {
     boton.addEventListener("click", (e) => {
-      const index = parseInt(e.target.dataset.index);
+      const index = e.currentTarget.dataset.index;
       eliminarDelCarrito(index);
     });
   });
@@ -42,23 +54,42 @@ function eliminarDelCarrito(index) {
   carrito.splice(index, 1);
   localStorage.setItem("carrito", JSON.stringify(carrito));
   mostrarCarrito();
-  updateCartCount();
+  if (typeof updateCartCount === "function") updateCartCount();
 }
-
-const btnFinalizar = document.getElementById("btn-finalizar");
 
 if (btnFinalizar) {
   btnFinalizar.addEventListener("click", () => {
     if (carrito.length === 0) {
-      mostrarAlerta("Tu carrito está vacío", "error");
+      Toastify({
+        text: "Tu carrito está vacío",
+        duration: 2000,
+        gravity: "top",
+        position: "right",
+        backgroundColor: "linear-gradient(to right, #e53935, #c62828)",
+        onClick: function () {},
+      }).showToast();
       return;
     }
 
-    carrito.length = 0;
-    localStorage.removeItem("carrito");
-    mostrarCarrito();
+    Swal.fire({
+      title: "¿Quiere finalizar la compra?",
+      showDenyButton: true,
+      confirmButtonText: "Finalizar",
+      denyButtonText: "Cancelar",
+      confirmButtonColor: "#00b06dff",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Compra confirmada con éxito!",
+          icon: "success",
+          timer: 3000,
+        });
 
-    mostrarAlerta("¡Su compra ha sido confirmada!", "success");
+        carrito.length = 0;
+        localStorage.removeItem("carrito");
+        mostrarCarrito();
+      }
+    });
   });
 }
 

@@ -23,7 +23,6 @@
         /></a>
         <nav class="nav">
           <ul>
-            <li><a href="#inicio">Inicio</a></li>
             <li><a href="#productos">Productos</a></li>
             <li><a href="#resenias">Reseñas</a></li>
             <li><a href="#contacto">Contacto</a></li>
@@ -42,17 +41,41 @@
     </header>
     <main>
       <section class="carrito">
-        <h2>Tu Carrito</h2>
-        <div id="carrito"></div>
-        <button id="btn-finalizar" class="btn-finalizar">
-          Finalizar la compra
-        </button>
+        <div class="cartView">
+          <h2>Tu carrito</h2>
+          <table class="table">
+            <thead class="head">
+              <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th colspan="2">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="carrito-body"></tbody>
+            <tfoot>
+              <tr class="head">
+                <th class="bold" colspan="2">Total</th>
+                <td class="bold" id="total" colspan="2"></td>
+              </tr>
+            </tfoot>
+          </table>
+          <div class="in-block">
+            <button class="btn-finalizar">
+              <a href="index.html">Seguir comprando</a>
+            </button>
+            <button id="btn-finalizar" class="btn-finalizar">
+              Finalizar compra
+            </button>
+          </div>
+        </div>
       </section>
     </main>
-    <div id="custom-alert" class="custom-alert hidden">
-      <p id="custom-alert-message"></p>
-    </div>
-    <script src="./js/alert.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script src="./js/cart-counter.js" defer></script>
     <script src="./js/carrito.js" defer></script>
   </body>

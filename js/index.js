@@ -1,20 +1,28 @@
-const productos = [
-  { nombre: "Tortas", precio: 15000, imagen: "./public/tortas.jpg" },
-  { nombre: "Facturas", precio: 800, imagen: "./public/facturas.jpg" },
-  { nombre: "Alfajores", precio: 750, imagen: "./public/alfajores.jpg" },
-  { nombre: "Masas", precio: 24000, imagen: "./public/masas.jpg" },
-  { nombre: "Bombones", precio: 60000, imagen: "./public/chocolate.jpg" },
-  { nombre: "Brownies", precio: 20000, imagen: "./public/brownies.jpg" },
-  { nombre: "Donas", precio: 3500, imagen: "./public/donuts.jpg" },
-  { nombre: "Cupcakes", precio: 2500, imagen: "./public/cupcakes.jpg" },
-  { nombre: "Macarons", precio: 2000, imagen: "./public/macarons.jpg" },
-];
+let productos = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const cardContainer = document.getElementById("box");
 
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+async function obtenerProductos() {
+  try {
+    const res = await fetch("productos.json");
+    productos = await res.json();
+    mostrarProductos();
+  } catch (err) {
+    Toastify({
+      text: "No se puedieron cargar los productos",
+      duration: 2000,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, #e53935, #c62828)",
+      onClick: function () {},
+    }).showToast();
+  }
+}
 
 function mostrarProductos() {
+  if (!cardContainer) return;
+  cardContainer.innerHTML = "";
   productos.forEach((producto, index) => {
     const card = document.createElement("div");
     card.className = "cards";
@@ -23,15 +31,17 @@ function mostrarProductos() {
       <h5 class="card-title">${producto.nombre}</h5>
       <div class="card-body">
         <p>Precio: $${producto.precio}</p>
-        <button class="btn" id="btn-${index}">Comprar</button>
+        <button class="btn btn-comprar" data-index="${index}">Comprar</button>
       </div>
     `;
     cardContainer.appendChild(card);
+  });
 
-    const boton = document.getElementById(`btn-${index}`);
-    boton.addEventListener("click", () => {
-      agregarAlCarrito(producto);
-    });
+  cardContainer.addEventListener("click", (e) => {
+    if (e.target.matches(".btn-comprar")) {
+      const idx = parseInt(e.target.dataset.index, 10);
+      agregarAlCarrito(productos[idx]);
+    }
   });
 }
 
@@ -53,7 +63,14 @@ function agregarAlCarrito(producto) {
 
   updateCartCount();
 
-  mostrarAlerta(`${producto.nombre} agregado al carrito`, "success");
+  Toastify({
+    text: `${producto.nombre} fue agregado al carrito`,
+    duration: 2000,
+    gravity: "top",
+    position: "right",
+    backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+    onClick: function () {},
+  }).showToast();
 }
 
-mostrarProductos();
+obtenerProductos();
