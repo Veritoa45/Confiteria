@@ -47,7 +47,7 @@ confiteria/
 
 ## 💻 Version Deploy
 
-Pueden visitar el proyecto en el siguiente link: [Delice Confiserie](https://veritoa45.github.io/confiteria/)
+Pueden visitar el proyecto en el siguiente link: [Delice Confiserie](https://veritoa45.github.io/Confiteria)
 
 ## 📬 Contacto
 
