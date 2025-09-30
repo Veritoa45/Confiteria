@@ -17,8 +17,8 @@ Delice Confiserie es una página web básica desarrollada como parte de un curso
 1. Clonar el repositorio
 
 ```bash
-    git clone https://github.com/Veritoa45/delice-confiserie
-    cd delice-confiserie
+    git clone https://github.com/Veritoa45/confiteria
+    cd confiteria
 ```
 
 2. Ejecutar la app con Go Live
@@ -34,22 +34,24 @@ Esto abrirá la app en tu navegador en http://127.0.0.1:5500/index.html
 ## 📂 Estructura del proyecto
 
 ```
-proyecto-final-ecommerce-veronica-molinari/
+confiteria/
 ├── js/
-│   ├── script.js         → Lógica para los productos y el carrito
+│   ├── carrito.js
+│   ├── cart-counter.js
+│   ├── index.js
 ├── public/               → Imágenes y logo
 ├── index.html
+├── carrito.html
 └── styles.css            → Estilos
 ```
 
 ## 💻 Version Deploy
 
-Pueden visitar el proyecto en el siguiente link: [Delice Confiserie](https://veritoa45.github.io/delice-confiserie/)
+Pueden visitar el proyecto en el siguiente link: [Delice Confiserie](https://veritoa45.github.io/confiteria/)
 
 ## 📬 Contacto
 
 <p align="center">
-  <img src="public/CV.png" alt="Foto" width="80" />
   <h3 align="center">Verónica Molinari</h3>
   <p align="center">
   <a href="https://github.com/Veritoa45">
